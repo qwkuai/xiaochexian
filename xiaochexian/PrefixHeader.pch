@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  xiaochexian
+//
+//  Created by 杜辰 on 16/3/18.
+//  Copyright © 2016年 蒯全伟. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#endif /* PrefixHeader_pch */
+
+
+#ifdef __OBJC__
+    #import "ModelDefine.h"
+    #import "DataCenter.h"
+#endif
