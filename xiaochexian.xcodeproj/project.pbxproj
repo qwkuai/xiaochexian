@@ -15,6 +15,7 @@
 		505044311C9AAE5A0047C6B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5050442F1C9AAE5A0047C6B3 /* LaunchScreen.storyboard */; };
 		5050443C1C9AAE5B0047C6B3 /* xiaochexianTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5050443B1C9AAE5B0047C6B3 /* xiaochexianTests.m */; };
 		505044471C9AAE5B0047C6B3 /* xiaochexianUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 505044461C9AAE5B0047C6B3 /* xiaochexianUITests.m */; };
+		508DF39E1C9F8E35007AE8FA /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508DF39D1C9F8E35007AE8FA /* CoreMotion.framework */; };
 		50ADA9B71C9BF6F000F3CE18 /* ModelDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADA9B61C9BF6F000F3CE18 /* ModelDefine.m */; };
 		50ADA9B81C9BF6F000F3CE18 /* ModelDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADA9B61C9BF6F000F3CE18 /* ModelDefine.m */; };
 		50ADA9B91C9BF6F000F3CE18 /* ModelDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADA9B61C9BF6F000F3CE18 /* ModelDefine.m */; };
@@ -85,6 +86,7 @@
 		505044421C9AAE5B0047C6B3 /* xiaochexianUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xiaochexianUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		505044461C9AAE5B0047C6B3 /* xiaochexianUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xiaochexianUITests.m; sourceTree = "<group>"; };
 		505044481C9AAE5B0047C6B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		508DF39D1C9F8E35007AE8FA /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		50ADA99E1C9BF2E000F3CE18 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		50ADA9B51C9BF6F000F3CE18 /* ModelDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelDefine.h; path = xiaochexian/Model/ModelDefine.h; sourceTree = "<group>"; };
 		50ADA9B61C9BF6F000F3CE18 /* ModelDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelDefine.m; path = xiaochexian/Model/ModelDefine.m; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508DF39E1C9F8E35007AE8FA /* CoreMotion.framework in Frameworks */,
 				50ADA9D41C9C0A3F00F3CE18 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +207,7 @@
 		50ADA99D1C9BF2E000F3CE18 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				508DF39D1C9F8E35007AE8FA /* CoreMotion.framework */,
 				50ADA99E1C9BF2E000F3CE18 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -725,6 +729,7 @@
 				50ADA9E21C9C0A4000F3CE18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

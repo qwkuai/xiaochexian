@@ -11,6 +11,8 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 #import <NetworkExtension/NetworkExtension.h>
 
+#import <CoreMotion/CoreMotion.h>
+
 @interface TodayViewController () <NCWidgetProviding>
 
 @end
@@ -18,8 +20,9 @@
 @implementation TodayViewController
 {
     UILabel *_layout;
-    NSTimer *_timer;
     NSInteger _count;
+    
+    CMMotionManager *_motionManager;
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
@@ -41,25 +44,33 @@
         }
     }
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                              target:self
-                                            selector:@selector(loop)
-                                            userInfo:nil
-                                             repeats:YES];
+    _motionManager = [[CMMotionManager alloc] init];
+    _motionManager.magnetometerUpdateInterval = 1;
+    
+    __block typeof(self) blockSelf = self;
+    [_motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMMagnetometerData * _Nullable magnetometerData, NSError * _Nullable error) {
+        [blockSelf loop:magnetometerData];
+    }];
 }
 
 #pragma mark - Test
 
-- (void)loop
+- (void)loop:(CMMagnetometerData *)magnetometerData
 {
     id data = [self fetchSSIDInfoOld];
+    
+    NSString *mac = nil;
+    NSString *name = nil;
+    
+    CMMagneticField magFile = magnetometerData.magneticField;
+    
     if ([data isKindOfClass:[NSDictionary class]]) {
         NSDictionary *dic = (NSDictionary *)data;
-        NSString *mac = [dic objectForKey:@"BSSID"];
-        NSString *name = [dic objectForKey:@"SSID"];
-        
-        _layout.text = [NSString stringWithFormat:@"Counting : %zi\nBSSID : %@\nSSID : %@", _count++, mac, name];
+        mac = [dic objectForKey:@"BSSID"];
+        name = [dic objectForKey:@"SSID"];
     }
+    
+    _layout.text = [NSString stringWithFormat:@"Counting : %zi\nBSSID : %@\nSSID : %@\n\nmagneto : \nx = %f\ny = %f\nz = %f", _count++, mac, name, magFile.x, magFile.y, magFile.z];
 }
 
 - (id)fetchSSIDInfo
